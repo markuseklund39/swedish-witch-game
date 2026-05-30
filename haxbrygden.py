@@ -67,13 +67,15 @@ witch = pygame.Rect(2140, 740, 40, 40)
 # =========================
 herbs = []
 
-for i in range(5):
-    herbs.append(pygame.Rect(
+while len(herbs) < 5:
+    herb = pygame.Rect(
         random.randint(900, 2500),
         random.randint(300, 1800),
         20,
         20
-    ))
+    )
+    if not herb.colliderect(river) and not herb.colliderect(lake):
+        herbs.append(herb)
 
 collected_herbs = 0
 required_herbs = 5
